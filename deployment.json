@@ -28,7 +28,7 @@
             },
             "kind": "[parameters('kind')]",
             }
-        }
+        
     ]
     "outputs": {}
 }
