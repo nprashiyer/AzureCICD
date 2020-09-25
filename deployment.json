@@ -29,11 +29,5 @@
             "properties": {}
         }
         
-    ],
-    "outputs": {
-        "storageAccountName": {
-        "type": "string",
-        "value": "[parameters('storageAccountName')]"
-        }
-  }
+    ]
 }
