@@ -1,0 +1,25 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'CICD'
+    subscriptionId: 'ef0e8a76-6cee-4640-bb20-8aa726a5d693'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'prash-rg-01'
+    location: 'East US'
+    templateLocation: 'URL of the file'
+    csmFileLink: 'https://raw.githubusercontent.com/nprashiyer/AzureCICD/master/deployment.json'
+    csmParametersFileLink: 'https://raw.githubusercontent.com/nprashiyer/AzureCICD/master/parameters.json'
+    deploymentMode: 'Incremental'
