@@ -22,12 +22,12 @@
             "apiVersion": "2019-06-01",
             "name": "[parameters('storageAccountName')]",
             "location": "[parameters('location')]",
-            "dependsOn": [],
             "sku": {
                 "name": "[parameters('accountType')]"
             },
-            "kind": "[parameters('kind')]"
-            }
+            "kind": "[parameters('kind')]",
+            "properties": {}
+        }
         
     ]
 }
