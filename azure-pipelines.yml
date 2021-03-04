@@ -10,16 +10,8 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-
-- task: AzureResourceManagerTemplateDeployment@3
+- task: CopyFiles@2
   inputs:
-    deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'CICD'
-    subscriptionId: 'ef0e8a76-6cee-4640-bb20-8aa726a5d693'
-    action: 'Create Or Update Resource Group'
-    resourceGroupName: 'prash-rg-01'
-    location: 'East US'
-    templateLocation: 'URL of the file'
-    csmFileLink: 'https://raw.githubusercontent.com/nprashiyer/AzureCICD/master/deployment.json'
-    csmParametersFileLink: 'https://raw.githubusercontent.com/nprashiyer/AzureCICD/master/parameters.json'
-    deploymentMode: 'Incremental'
+    Contents: '**'
+    TargetFolder: '$(build.artifactstagingdirectory)/Prash'
+
