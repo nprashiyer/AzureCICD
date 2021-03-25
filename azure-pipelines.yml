@@ -10,6 +10,21 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'SonarQube'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'ARM_CICD_ARM_CICD'
+    cliSources: '.'
+
+- task: SonarQubeAnalyze@4
+
+- task: SonarQubePublish@4
+  inputs:
+    pollingTimeoutSec: '300'
+
+
 - task: CopyFiles@2
   inputs:
     Contents: '**'
